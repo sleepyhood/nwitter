@@ -6,7 +6,12 @@ import { authService } from "myBase";
 import React, { useState } from "react";
 
 const AuthForm = () => {
-  const toogleAccount = () => setnewAccount((prev) => !prev);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [newAccount, setNewAccount] = useState(true);
+  const [error, setError] = useState("");
+
+  const toggleAccount = () => setNewAccount((prev) => !prev);
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -38,15 +43,10 @@ const AuthForm = () => {
       setPassword(value);
     }
   };
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [newAccount, setnewAccount] = useState(true);
-  const [error, setError] = useState("");
 
   return (
     <>
-      {" "}
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="container">
         <input
           name="email"
           type="email"
@@ -54,6 +54,7 @@ const AuthForm = () => {
           required
           value={email}
           onChange={onChange}
+          className="authInput"
         />
         <input
           name="password"
@@ -62,15 +63,17 @@ const AuthForm = () => {
           required
           value={password}
           onChange={onChange}
+          className="authInput"
         />
         <input
           type="submit"
+          className="authInput authSubmit"
           value={newAccount ? "Create Account" : "Sign In"}
           required
         />
-        {error}
+        {error && <span className="authError">{error}</span>}
       </form>
-      <span onClick={toogleAccount}>
+      <span onClick={toggleAccount} className="authSwitch">
         {newAccount ? "Sign In" : "Create Account"}
       </span>
     </>
