@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/sleepyhood/nwitter/static/css/main.b547689f.chunk.css",
+    "main.js": "/sleepyhood/nwitter/static/js/main.d0059fc3.chunk.js",
+    "main.js.map": "/sleepyhood/nwitter/static/js/main.d0059fc3.chunk.js.map",
+    "runtime-main.js": "/sleepyhood/nwitter/static/js/runtime-main.9a66e0d5.js",
+    "runtime-main.js.map": "/sleepyhood/nwitter/static/js/runtime-main.9a66e0d5.js.map",
+    "static/js/2.526048f1.chunk.js": "/sleepyhood/nwitter/static/js/2.526048f1.chunk.js",
+    "static/js/2.526048f1.chunk.js.map": "/sleepyhood/nwitter/static/js/2.526048f1.chunk.js.map",
+    "static/js/3.95a9a185.chunk.js": "/sleepyhood/nwitter/static/js/3.95a9a185.chunk.js",
+    "static/js/3.95a9a185.chunk.js.map": "/sleepyhood/nwitter/static/js/3.95a9a185.chunk.js.map",
+    "index.html": "/sleepyhood/nwitter/index.html",
+    "static/css/main.b547689f.chunk.css.map": "/sleepyhood/nwitter/static/css/main.b547689f.chunk.css.map",
+    "static/js/2.526048f1.chunk.js.LICENSE.txt": "/sleepyhood/nwitter/static/js/2.526048f1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9a66e0d5.js",
+    "static/js/2.526048f1.chunk.js",
+    "static/css/main.b547689f.chunk.css",
+    "static/js/main.d0059fc3.chunk.js"
+  ]
+}
