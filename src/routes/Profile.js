@@ -1,12 +1,15 @@
 import { authService, dbService } from "myBase";
-import React, { useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { collection, getDocs, query, where } from "@firebase/firestore";
 import { updateProfile } from "@firebase/auth";
+import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 
 export default ({ userObj, refreshUser }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
+  const [attachment, setAttachment] = useState("");
+
   const onLogOutClick = () => {
     authService.signOut();
     history.push("/");
@@ -39,32 +42,67 @@ export default ({ userObj, refreshUser }) => {
     event.preventDefault();
     // 5.1 기존 이름과 새로 바꾼이름이 다를 떄만 업데이트
     // 프로필 이미지도 바꿀수 있음! 나중에 시도각
-    if (userObj.displayName !== newDisplayName) {
+    if (
+      userObj.displayName !== newDisplayName ||
+      userObj.displayName === null
+    ) {
       await updateProfile(userObj, { displayName: newDisplayName });
       refreshUser();
+
+      // await updateDoc(doc(dbService, `nweets/${creatorId}`), {
+      //   displayName: newDisplayName
+      // });
+      // console.log(newDisplayName);
     }
   };
+
+  const onFileChange = (event) => {
+    const {
+      target: { files },
+    } = event;
+    const theFile = files[0];
+    const reader = new FileReader();
+    reader.onloadend = (finishedEvent) => {
+      // console.log(finishedEvent);
+      const {
+        currentTarget: { result },
+      } = finishedEvent;
+      setAttachment(result);
+    };
+    reader.readAsDataURL(theFile);
+  };
+  const fileInput = useRef();
   return (
     <div className="container">
       <form onSubmit={onSubmit} className="profileForm">
-        <form onSubmit={onSubmit}>
-          <input
-            onChange={onChange}
-            type="text"
-            autoFocus
-            placeholder="Display Name"
-            value={newDisplayName}
-            className="formInput"
-          />
-          <input
-            type="submit"
-            value="Update Profile"
-            className="formBtn"
+        {/* <input
+            id="attach-file"
+            type="file"
+            accept="image/*"
+            onChange={onFileChange}
             style={{
-              marginTop: 10,
+              opacity: 0
             }}
+            ref={fileInput}
           />
-        </form>
+          <input type="submit" value="" /> */}
+
+        <input
+          onChange={onChange}
+          type="text"
+          autoFocus
+          placeholder="Display Name"
+          value={newDisplayName}
+          className="formInput"
+        />
+        <input
+          type="submit"
+          value="Update Profile"
+          className="formBtn"
+          style={{
+            marginTop: 10,
+          }}
+        />
       </form>
       <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
         Log Out

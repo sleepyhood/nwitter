@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import AppRouter from "components/Router";
+import AppRouter from "components/AppRouter";
 import { authService } from "myBase";
 import { updateProfile } from "@firebase/auth";
+// import MediaQuery, { useMediaQuery } from "react-responsive";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   // 2.4 로그인과 회원가입 여부 판별, 로그인시 footer가 home
@@ -10,17 +12,25 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
 
+  // const isPC = useMediaQuery({
+  //   query: "(min-width: 1024px)",
+  // });
+
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
         // setIsLoggedIn(true);
         //5.2 user는 필요이상의 정보를 가진 object이기 떄문에, 필요한 정보만 이동
+
         setUserObj(user);
+        if (user.displayName === null) {
+          // setUserObj({ displayName: "Nwitter" });
+        }
       } else {
         // 6.0 로그아웃이 정상적으로 작동하기위해 조건문
         setUserObj(null);
       }
-
+      // console.log(user);
       setInit(true);
     });
   }, []);
@@ -32,22 +42,35 @@ function App() {
     //   uid: user.uid,
     //   updateProfile: (args) => user.updateProfile(args),
     // });
+
+    // setUserObj({ displayName: "BS" });
     setUserObj({ ...user });
     setUserObj(user);
+
+    // 09.15 현재 로그인된 유저의 이름
+    // console.log(authService.currentUser.displayName);
   };
+
   return (
-    <>
+    <BrowserRouter>
       {init ? (
-        <AppRouter
-          refreshUser={refreshUser}
-          isLoggedIn={Boolean(userObj)}
-          userObj={userObj}
-        />
+        <>
+          <AppRouter
+            refreshUser={refreshUser}
+            isLoggedIn={Boolean(userObj)}
+            userObj={userObj}
+          ></AppRouter>
+        </>
       ) : (
-        "Initializing..."
+        <>
+          <div className="refreshContainer">
+            <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+            <span className="sr-only">Initializing...</span>
+          </div>
+        </>
       )}
       {/* <footer>&copy; {new Date().getFullYear()} Nwitter</footer> */}
-    </>
+    </BrowserRouter>
   );
 }
 export default App;

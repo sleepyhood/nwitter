@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { dbService, storageService } from "myBase";
+import { dbService, storageService, authService } from "myBase";
 import { addDoc, collection } from "firebase/firestore";
 import {
   ref,
@@ -34,6 +34,8 @@ const NweetFactory = ({ userObj }) => {
       text: nweet,
       createdAt: Date.now(),
       creatorId: userObj.uid,
+      // 09.15 파이어베이스로부터 해당 트윗의 작성자를 불러옴!
+      displayName: authService.currentUser.displayName,
       attachmentUrl,
     };
 

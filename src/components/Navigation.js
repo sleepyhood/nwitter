@@ -27,6 +27,7 @@ const Navigation = ({ userObj }) => (
             {userObj.displayName
               ? `${userObj.displayName}의 Profile`
               : "Profile"}
+            {/* 이름이 존재할경우에 앞에 글자추가 */}
           </span>
         </Link>{" "}
       </li>
