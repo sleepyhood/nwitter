@@ -62,7 +62,7 @@ const Home = ({ userObj }) => {
                   nweetObj={nweet}
                   isOwner={nweet.creatorId === userObj.uid}
                   displayName={nweet.displayName}
-                ></Nweet>
+                />
                 {/* <Profile CID={nweet.creatorId} /> */}
               </>
             ))}

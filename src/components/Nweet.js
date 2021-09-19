@@ -106,8 +106,22 @@ const Nweet = ({ nweetObj, isOwner, displayName }) => {
             </>
           ) : (
             <>
-              {/* ! 자신이 작성된 트윗을 보여줄 경우 */}
-              <span className="author">{`${nweetObj.displayName}`}</span>
+              {/* 09.19유저의 프로필 */}
+              <span className="authorProfile">
+                {/* 09.19유저의 프로필 */}
+                {nweetObj.displayProfile ? (
+                  <img src={nweetObj.displayProfile} className="authorPhoto" />
+                ) : (
+                  <div
+                    className="currentPhotoFalse"
+                    // for="attach-file"
+                  >
+                    <i className="far fa-user fa-2x"></i>
+                  </div>
+                )}
+                {/* ! 자신이 작성된 트윗을 보여줄 경우 */}
+                <span className="author">{`${nweetObj.displayName}`}</span>
+              </span>
               <h4 className="nweetText">{nweetObj.text}</h4>
               {nweetObj.attachmentUrl && (
                 <>
@@ -115,7 +129,7 @@ const Nweet = ({ nweetObj, isOwner, displayName }) => {
                     src={nweetObj.attachmentUrl}
                     onClick={toggleModal}
                     className="nweetImg"
-                  ></img>
+                  />
 
                   <ModalProvider>
                     <div className="newModal">
@@ -127,7 +141,7 @@ const Nweet = ({ nweetObj, isOwner, displayName }) => {
                         <img
                           src={nweetObj.attachmentUrl}
                           className="modalImg"
-                        ></img>
+                        />
                         <button onClick={toggleModal} id="modalCloseBtn">
                           <i class="fas fa-times fa-2x" id="closeModal"></i>
                         </button>
@@ -181,16 +195,20 @@ const Nweet = ({ nweetObj, isOwner, displayName }) => {
             </>
           ) : (
             <>
-              {/* ! 자신이 작성된 트윗을 보여줄 경우 */}
-              <span className="author">{`${nweetObj.displayName}`}</span>
-              <h4 className="nweetText">{nweetObj.text}</h4>
+              <span className="authorProfile">
+                {/* 09.19유저의 프로필 */}
+                <img src={nweetObj.displayProfile} className="authorPhoto" />
+                {/* ! 자신이 작성된 트윗을 보여줄 경우 */}
+                <span className="author">{`${nweetObj.displayName}`}</span>
+              </span>
+              <div className="nweetText">{nweetObj.text}</div>
               {nweetObj.attachmentUrl && (
                 <>
                   <img
                     src={nweetObj.attachmentUrl}
                     onClick={toggleModal}
                     className="nweetImg"
-                  ></img>
+                  />
 
                   <ModalProvider>
                     <div className="newModal">
@@ -211,6 +229,8 @@ const Nweet = ({ nweetObj, isOwner, displayName }) => {
                   </ModalProvider>
                 </>
               )}
+              <div className="nweetTime">{`${nweetObj.createdAt}`}</div>
+
               {isOwner && (
                 <div className="nweet__actions">
                   <span onClick={onDeleteClick}>
@@ -221,11 +241,12 @@ const Nweet = ({ nweetObj, isOwner, displayName }) => {
                   </span>
                 </div>
               )}
-              <button onClick={onLike}>{likeCnt}</button>
+
+              {/* <button onClick={onLike}>{likeCnt}</button> */}
             </>
           )}
         </div>
-      )}
+      )}{" "}
     </div>
   );
 };

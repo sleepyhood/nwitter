@@ -6,17 +6,9 @@ import Home from "../routes/Home";
 import Navigation from "./Navigation";
 import { Redirect } from "react-router";
 import DarkModeToggle from "components/DarkModeToggle";
-import SideBar from "components/SideBar";
-import useDarkMode from "use-dark-mode";
 import { BrowserRouter } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
-  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
-  const isPc = useMediaQuery({
-    query: "(min-width:1024px)",
-  });
-
   return (
     <Router>
       {isLoggedIn && <Navigation userObj={userObj} />}
@@ -52,7 +44,6 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
           </>
         )}
       </Switch>
-      {/* <SideBar /> */}
       <DarkModeToggle />
     </Router>
   );

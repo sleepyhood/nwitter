@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { dbService, storageService, authService } from "myBase";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
 import {
   ref,
   uploadString,
@@ -30,15 +30,19 @@ const NweetFactory = ({ userObj }) => {
       //storage에 있는 파일 URL로 다운로드 받기
       attachmentUrl = await getDownloadURL(uploadFile.ref);
     }
+    let d = new Date();
+
     const nweetObj = {
       text: nweet,
-      createdAt: Date.now(),
+      createdAt: d.toUTCString(),
       creatorId: userObj.uid,
       // 09.15 파이어베이스로부터 해당 트윗의 작성자를 불러옴!
       displayName: authService.currentUser.displayName,
+      // 09.18 프로필 사진은 photoURL!!!!!!!!!!
+      displayProfile: authService.currentUser.photoURL,
       attachmentUrl,
     };
-
+    console.log(`current user: ${authService.currentUser}`);
     try {
       const docRef = await addDoc(collection(dbService, "nweets"), nweetObj);
       console.log("Document written with ID: ", docRef.id);
@@ -56,6 +60,9 @@ const NweetFactory = ({ userObj }) => {
     } = event;
     // event내에 있는 target.value를 가져와라
     setNweet(value);
+    // let myTime = Timestamp.fromDate(new Date());
+    // let d = new Date();
+    // console.log(d);
   };
 
   const onFileChange = (event) => {

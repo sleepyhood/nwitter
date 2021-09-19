@@ -7,26 +7,22 @@ const Navigation = ({ userObj }) => (
   <nav>
     <ul style={{ display: "flex", justifyContent: "center", marginTop: 50 }}>
       <li>
-        <Link to="/" style={{ marginRight: 10 }}>
-          <FontAwesomeIcon icon={faTwitter} color={"#04AAFF"} size="2x" />
+        <Link to="/" style={{ marginRight: 10 }} className="icon nwitter">
+          <div className="tooltip">Home</div>
+          {/* <i class="faTwitter fa-3x"></i> */}
+          <FontAwesomeIcon
+            icon={faTwitter}
+            color={"#04AAFF"}
+            size="2x"
+            className="nwitterIcon"
+          />
         </Link>
       </li>
       <li>
-        <Link
-          to="/profile"
-          style={{
-            marginLeft: 10,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            fontSize: 12,
-          }}
-        >
+        <Link to="/profile" className="icon profile">
           <FontAwesomeIcon icon={faUser} color={"#04AAFF"} size="2x" />
-          <span style={{ marginTop: 10 }}>
-            {userObj.displayName
-              ? `${userObj.displayName}의 Profile`
-              : "Profile"}
+          <span className="tooltip">
+            {userObj.displayName ? `${userObj.displayName}` : "Profile"}
             {/* 이름이 존재할경우에 앞에 글자추가 */}
           </span>
         </Link>{" "}
