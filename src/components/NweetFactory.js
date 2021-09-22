@@ -9,7 +9,12 @@ import {
 } from "@firebase/storage";
 import { v4 as uuidv4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEnvelopeOpenText,
+  faPlus,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 const NweetFactory = ({ userObj }) => {
   const [nweet, setNweet] = useState("");
@@ -34,7 +39,7 @@ const NweetFactory = ({ userObj }) => {
 
     const nweetObj = {
       text: nweet,
-      createdAt: d.toUTCString(),
+      createdAt: d.toLocaleString("ko-KR"),
       creatorId: userObj.uid,
       // 09.15 파이어베이스로부터 해당 트윗의 작성자를 불러옴!
       displayName: authService.currentUser.displayName,
@@ -90,7 +95,7 @@ const NweetFactory = ({ userObj }) => {
   return (
     <form onSubmit={onSubmit} className="factoryForm">
       <div className="factoryInput__container">
-        <input
+        <textarea
           className="factoryInput__input"
           value={nweet}
           onChange={onChange}
@@ -98,11 +103,13 @@ const NweetFactory = ({ userObj }) => {
           placeholder="What's on your mind?"
           maxLength={120}
         />
-        <input type="submit" value="&rarr;" className="factoryInput__arrow" />
       </div>
       <label for="attach-file" className="factoryInput__label">
-        <span>Add photos</span>
-        <FontAwesomeIcon icon={faPlus} />
+        {/* <span>Add photos</span> */}
+        <i class="fas fa-camera fa-lg"></i>
+        <input type="submit" value="➜" className="factoryInput__arrow">
+          {/* <i class="fas fa-pencil-alt fa-lg"></i> */}
+        </input>
       </label>
       {/* 4.0 파일 업로드 */}
       <input
@@ -112,21 +119,22 @@ const NweetFactory = ({ userObj }) => {
         onChange={onFileChange}
         style={{
           opacity: 0,
+          height: 0,
         }}
         ref={fileInput}
       />
-      <input type="submit" value="Nweet" />
+      <input type="submit" value="Nweet!" style={{ opacity: 0 }} />
       {attachment && (
         <div className="factoryForm__attachment">
           <img
             src={attachment}
             style={{
+              // opacity: 0,
               backgroundImage: attachment,
             }}
           />
           <div className="factoryForm__clear" onClick={onClearAttachment}>
-            <span>Remove</span>
-            <FontAwesomeIcon icon={faTimes} />
+            <i class="fas fa-times fa-2x"></i>
           </div>
         </div>
       )}

@@ -1,0 +1,132 @@
+/* Nweet */
+
+.nweetEdit .formBtn {
+  cursor: pointer;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.nweets {
+  margin-top: 30px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.nweet {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .nweet {
+  background-color: #212529;
+
+  color: white;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.authorProfile {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* 09.14 작성자  */
+.author {
+  font-weight: 700;
+  padding-bottom: 10px;
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+/* 09.19 작성자 프로필 사진 */
+.authorPhoto {
+  border-radius: 100%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  /* border: solid 3px #333; */
+
+  display: inline-block;
+  content: "";
+
+  background-size: cover;
+  background-position: center;
+}
+
+.nweet h4 {
+  font-size: 14px;
+}
+.nweetText {
+  word-wrap: break-word;
+  position: relative;
+  /* margin-top: 10px; */
+  margin-left: 65px;
+  font-weight: 500;
+}
+
+.nweetTime {
+  position: relative;
+  margin-left: 40%;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.nweet .nweetImg {
+  position: relative;
+  cursor: pointer;
+
+  top: 10px;
+  left: 50%;
+  right: auto;
+  margin-right: -50%;
+  transform: translate(-50%, 0%);
+
+  border-radius: 10px;
+  width: 280px;
+  max-width: 280px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* 09.17 modal Img */
+
+#modalCloseBtn {
+  cursor: pointer;
+  position: fixed;
+  margin-top: 10px;
+  margin-left: 90%;
+  display: inline-block;
+  height: 5%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-color: rgba(0, 0, 0, 0.8);
+}
+#modalCloseBtn #closeModal {
+  color: white;
+}
+.modalImg {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+.nweet__actions {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.nweet__actions span {
+  cursor: pointer;
+}
+
+.nweet__actions span:first-child {
+  margin-right: 10px;
+}

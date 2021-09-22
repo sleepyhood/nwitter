@@ -5,13 +5,11 @@ import Auth from "../routes/Auth";
 import Home from "../routes/Home";
 import Navigation from "./Navigation";
 import { Redirect } from "react-router";
-import DarkModeToggle from "components/DarkModeToggle";
-import { BrowserRouter } from "react-router-dom";
+import Settings from "../routes/Settings";
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
     <Router>
-      {isLoggedIn && <Navigation userObj={userObj} />}
       <Switch>
         {isLoggedIn ? (
           <div
@@ -19,9 +17,9 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
               maxWidth: 890,
               width: "100%",
               margin: "0 auto",
-              marginTop: 80,
+              // marginTop: 50,
               display: "flex",
-              justifyContent: "center",
+              // justifyContent: "center",
             }}
           >
             <>
@@ -30,6 +28,10 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
               </Route>
               <Route exact path="/profile">
                 <Profile userObj={userObj} refreshUser={refreshUser} />
+              </Route>
+              <Route exact path="/alarms"></Route>
+              <Route exact path="/settings">
+                <Settings />
               </Route>
               <Redirect from="*" to="/" />
             </>
@@ -44,7 +46,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
           </>
         )}
       </Switch>
-      <DarkModeToggle />
+      {isLoggedIn && <Navigation userObj={userObj} />}
     </Router>
   );
 };

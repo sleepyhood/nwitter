@@ -4,8 +4,12 @@ import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 import firebase from "myBase";
 
-import "index.css";
-import "index_PC.css";
+import "../src/css/index.css";
+import "../src/css/index_PC.css";
+import "../src/css/navigation.css";
+import "../src/css/nweet.css";
+import "../src/css/setting.css";
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

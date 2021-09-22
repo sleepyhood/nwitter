@@ -9,11 +9,11 @@ import {
 } from "@firebase/storage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
-import { authService } from "myBase";
+// import { authService } from "myBase";
 // 09.17 modal update
 import { ModalProvider } from "styled-react-modal";
 import Modal from "styled-react-modal";
-import styled, { css } from "styled-components";
+// import styled, { css } from "styled-components";
 import { useMediaQuery } from "react-responsive";
 
 const Nweet = ({ nweetObj, isOwner, displayName }) => {
@@ -21,9 +21,9 @@ const Nweet = ({ nweetObj, isOwner, displayName }) => {
   const [newNweet, setNewNweet] = useState(nweetObj.text);
   const [isOpen, setIsOpen] = useState(false);
 
-  const isMobile = useMediaQuery({ query: "(max-width: 800px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 700px)" });
   const isPc = useMediaQuery({
-    query: "(min-width:800px)",
+    query: "(min-width:700px)",
   });
 
   const [likeCnt, setLikeCnt] = useState(0);

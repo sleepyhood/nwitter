@@ -1,0 +1,70 @@
+.nweet_PC {
+  width: 100%;
+  max-width: 720px;
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  /* display: flex;
+  flex-direction: column; */
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.nweet_PC h4 {
+  font-size: 14px;
+}
+
+.nweet_PC .nweetImg {
+  position: relative;
+  cursor: pointer;
+
+  top: 10px;
+  left: 50%;
+  right: auto;
+  margin-right: -50%;
+  transform: translate(-50%, 0%);
+
+  border-radius: 10px;
+  width: 600px;
+  max-width: 700px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.nweet_PC form {
+  text-align: center;
+}
+
+.nweet_PC .icon:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  top: -70px;
+}
+.nweet_PC .icon:hover FontAwesomeIcon,
+.nweet_PC .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+}
+/* .nwitter:hover, */
+.nwitter_PC:hover .tooltip,
+.nwitter_PC:hover .tooltip:before {
+  background: #46c1f6;
+}
+.nwitter_PC .profile:hover .tooltip,
+.nwitter_PC .profile:hover .tooltip:before {
+  background: #46c1f6;
+}
+/* 09.19 호버 효과 */
+.nweet_PC .icon .tooltip {
+  position: absolute;
+  top: 0px;
+  margin-left: auto;
+  background: #fff;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  font-size: 15px;
+  padding: 10px 18px;
+  border-radius: 25px;
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}

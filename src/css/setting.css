@@ -1,0 +1,60 @@
+.setContainer {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.settingTitle {
+  font-size: 40px;
+  position: relative;
+  font-weight: 700;
+  left: 20%;
+  top: 40%;
+  /* right: 35%; */
+  justify-content: left;
+
+  /* text-align: left; */
+}
+
+/* Light & Dark Mode */
+.darkToggleBtn {
+  border-radius: 25px;
+  cursor: pointer;
+
+  /* color: white; */
+  border: none;
+  outline: none;
+  background: transparent;
+  /* border-bottom: 10%; */
+
+  position: relative;
+  /* bottom: 25px;
+  left: 25px; */
+  top: 5%;
+  right: 5%;
+}
+
+.light-mode {
+  height: 100%;
+  background-color: #f8f8f8;
+  color: #333;
+  transition: background-color 0.3s ease;
+  /* border: 3px solid black; */
+}
+
+.dark-mode {
+  background-color: #10171d;
+  color: #f8f8f8;
+  transition: background-color 0.3s ease;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  margin: 0 auto;
+}
+
+#lightbulb {
+  color: white;
+}
+#darkbulb {
+  color: #10171d;
+}

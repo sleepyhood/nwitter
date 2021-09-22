@@ -1,0 +1,448 @@
+@import "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css";
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  all: unset;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #f8f8f8;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+button {
+  background-color: white;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+form {
+  width: 100%;
+}
+
+.refreshContainer {
+  position: fixed;
+  /* display: block; */
+  top: 50%;
+  bottom: auto;
+  left: 50%;
+  right: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  /* width: 100%;
+  height: inherit; */
+  /* flex-direction: column; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* align-items: center;
+  justify-content: center; */
+  /* width: 50%; */
+}
+.fa-refresh {
+  color: #10171d;
+}
+
+.nweet-input::placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+.container {
+  width: 100%;
+  /* max-width: px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.formInput {
+  /* width: 100%; */
+  width: 70%;
+  padding: 10px 20px;
+  border-radius: 15px;
+  /* border: 1px solid black; */
+  /* border-bottom: 3px solid #10171d; */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  background-color: white;
+  color: black;
+  font-weight: 700;
+}
+
+.formBtn {
+  cursor: pointer;
+  width: 50%;
+  height: 20%;
+  padding: 7px 20px;
+  text-align: center;
+  font-weight: 500;
+
+  color: #5a189a;
+  border: 3px solid #5a189a;
+  background-color: transparent;
+
+  border-radius: 15px;
+
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.formBtn:active {
+  color: white;
+  background-color: #5a189a;
+}
+
+.cancelBtn {
+  cursor: pointer;
+  width: 50%;
+  height: 20%;
+  padding: 7px 20px;
+
+  color: white;
+  background-color: tomato;
+  border: 3px solid tomato;
+  font-weight: 500;
+
+  text-align: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cancelBtn:active {
+  color: tomato;
+  background-color: transparent;
+}
+
+/* Profile Page */
+
+.profileForm {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+  padding-bottom: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dark-mode .profileForm {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.logOut {
+  margin-top: 50px;
+}
+
+/* Nwitter Factory */
+
+.factoryForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  /* background-color: black; */
+}
+
+.factoryInput__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.factoryInput__input {
+  flex-grow: 1;
+
+  min-height: 60px;
+  max-height: 120px;
+  height: 100px;
+
+  padding: 0px 20px;
+  background-color: white;
+
+  font-family: -apple-system;
+  font-size: 14px;
+  /* color: white; */
+  border: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.factoryInput__input::-webkit-input-placeholder {
+  text-justify: center;
+}
+
+.dark-mode .factoryInput__input {
+  background-color: #212529;
+  color: #f8f8f8;
+}
+.dark-mode .factoryInput__input::-webkit-input-placeholder {
+  color: #f8f8f8;
+}
+
+.factoryInput__label {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+
+  flex-grow: 1;
+  width: 100%;
+  height: 50px;
+  padding: 0px 0px;
+  background-color: white;
+  /* color: white; */
+  /* border: 1px solid #04aaff; */
+  border: none;
+  /* border-radius: 10px; */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  /* border-bottom: 1px solid #04aaff; */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+
+  color: #333;
+  cursor: pointer;
+}
+
+.dark-mode .factoryInput__label {
+  background-color: #212529;
+  color: #f8f8f8;
+}
+
+.factoryInput__label i {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.factoryInput__arrow {
+  position: relative;
+  margin-left: 160px;
+
+  text-align: center;
+
+  background-color: #333;
+  height: 50px;
+  width: 100px;
+
+  border-bottom-right-radius: 10px;
+  color: white;
+
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.dark-mode .factoryInput__arrow {
+  color: #333;
+  background-color: #f8f8f8;
+}
+.factoryForm__attachment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 300px;
+  height: 200px;
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.factoryForm__attachment img {
+  /* height: 80px; */
+  width: 280px;
+  border-radius: 10px;
+}
+
+.factoryForm__clear {
+  color: #333;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px 0px;
+}
+.dark-mode .factoryForm__clear {
+  color: #ff9e00;
+}
+.factoryForm__clear span {
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.currentPhotoFalse {
+  border-radius: 100%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  border: solid 3px #5a189a;
+
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode .currentPhotoFalse {
+  border: solid 3px #ff9e00;
+}
+
+/* Auth */
+
+.authContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.authBtns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 320px;
+}
+
+.authBtn {
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  padding: 10px 0px;
+  font-size: 12px;
+  text-align: center;
+  width: 150px;
+  background: white;
+  cursor: pointer;
+}
+
+/* AuthForm */
+
+.authInput {
+  max-width: 320px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 1);
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: black;
+}
+
+.authSubmit {
+  text-align: center;
+  background: #5a189a;
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.dark-mode .authSubmit {
+  background: #ff9e00;
+}
+
+.authError {
+  color: tomato;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.authSwitch {
+  color: #5a189a;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  display: block;
+  font-size: 12px;
+  text-decoration: underline;
+}
+.dark-mode .authSwitch {
+  color: #ff9e00;
+}
+
+/*09.18 pofile photo!*/
+.currentPhotoTrue {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border: solid 3px #5a189a;
+}
+
+.dark-mode .currentPhotoTrue {
+  border: solid 3px #ff9e00;
+}
+
+.profileForm .currentPhotoFalse {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border: solid 3px #5a189a;
+
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.dark-mode .profileForm .currentPhotoFalse {
+  border: solid 3px #ff9e00;
+}
+
+.profileForm .newPhotoTrue {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  border: solid 3px #5a189a;
+
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode .profileForm .newPhotoTrue {
+  border: solid 3px #ff9e00;
+}
+.far.fa-user.fa-4x {
+  color: #10171d;
+  background-size: cover;
+}
+
+.icon {
+  margin: 0 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}

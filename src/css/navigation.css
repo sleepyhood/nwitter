@@ -1,0 +1,81 @@
+/* 09.20 네비게시션 바 */
+
+.navigationBar {
+  display: flex;
+  position: fixed;
+  bottom: 0px;
+  height: 60px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+  border-top: 1px solid #aaaaaa;
+  color: #333;
+
+  z-index: 1;
+}
+.navigationBar .icon:hover,
+.navigationBar .icon:active,
+.navigationBar .icon:hover:not(.current) {
+  color: #333;
+}
+.dark-mode .navigationBar {
+  background-color: #10171d;
+  color: #f8f8f8;
+  border-top: 1px solid #f8f8f8;
+}
+/* :hover:not(.current) */
+.dark-mode .navigationBar .icon:hover,
+.dark-mode .navigationBar .icon:active {
+  color: #fafafa;
+}
+.navigationBar li {
+  margin: auto;
+}
+
+.navigationBar Link {
+  display: -ms-inline-grid;
+  place-items: center;
+  position: relative;
+  z-index: 1;
+  margin-left: 10px;
+}
+.navigationBar i:current {
+  color: black;
+}
+
+.icon:hover FontAwesomeIcon {
+  color: #fff;
+}
+
+.logoNav {
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* transition-timing-function: ease-in; */
+  /* transition: 0.5s; */
+  background-color: #f8f8f8;
+}
+.logoNav i {
+  cursor: pointer;
+}
+
+.dark-mode .logoNav {
+  background-color: #10171d;
+}
+
+.logoNav.active {
+  transition: all 0.5s;
+  visibility: visible;
+  z-index: 1;
+}
+.logoNav.hidden {
+  visibility: hidden;
+  transition: all 0.5s;
+  z-index: 1;
+  transform: translateY(-100%);
+}
