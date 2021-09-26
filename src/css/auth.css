@@ -1,0 +1,125 @@
+/* Auth */
+
+.authContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://www.onlygfx.com/wp-content/uploads/2019/04/6-rough-seamless-recycled-vintage-paper-texture-6-1024x825.jpg");
+}
+
+.authContainer .logos {
+  color: #333;
+  font-family: -apple-system;
+  font-size: 90px;
+  font-weight: 900;
+  margin-bottom: 40px;
+}
+
+.authContainer .logos .triangle {
+  font-size: 100px;
+  font-weight: 600; /* font-weight: lighter; */
+}
+
+.authContainer .logos .rectangle {
+  font-size: 90px;
+  font-weight: bolder;
+}
+
+.authContainer .ment {
+  margin: 50px 0px;
+  font-family: apple-system;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.authBtns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 320px;
+}
+
+.authBtn {
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 0px;
+  font-size: 12px;
+  text-align: center;
+  width: 150px;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+.authBtns button:hover,
+.authBtns button:active {
+  color: #f8f8f8;
+  background-color: teal;
+}
+/* AuthForm */
+
+.authInput {
+  max-width: 320px;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 1);
+  margin-bottom: 10px;
+
+  font-family: -apple-system;
+  font-size: 13px;
+  color: #333;
+  font-weight: 700;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+.authInput::-webkit-input-placeholder {
+  font-family: -apple-system;
+  font-size: 13px;
+  font-weight: 700;
+}
+.authSubmit {
+  text-align: center;
+  background: teal;
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.authError {
+  color: tomato;
+  text-align: center;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.authSwitch {
+  color: teal;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  display: block;
+  font-size: 12px;
+  text-decoration: underline;
+}

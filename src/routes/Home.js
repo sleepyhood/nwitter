@@ -1,22 +1,16 @@
 import React, { useEffect, useState } from "react";
-import {
-  collection,
-  orderBy,
-  onSnapshot,
-  getFirestore,
-  query,
-} from "firebase/firestore";
+import { collection, orderBy, onSnapshot, query } from "firebase/firestore";
 import Nweet from "../components/Nweet";
 import NweetFactory from "components/NweetFactory";
 import LogoNav from "../components/LogoNav";
-import { HashRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { dbService } from "myBase";
 
 const Home = ({ userObj }) => {
   const [nweets, setNweets] = useState([]);
   // 3.4 snpshot를 통해 query를 쓰는것보다 실시간으로 빠르게 정보가 전달됨
   useEffect(() => {
     const q = query(
-      collection(getFirestore(), "nweets"),
+      collection(dbService, "nweets"),
       orderBy("createdAt", "desc")
     );
     const happend = onSnapshot(q, (querySnapshot) => {
@@ -40,7 +34,7 @@ const Home = ({ userObj }) => {
       {
         // isMobile &&
         <>
-          <LogoNav />
+          <LogoNav key={userObj.creatorId} />
           <NweetFactory userObj={userObj} />
           <div className="nweets">
             {nweets.map((nweet) => (
@@ -49,7 +43,7 @@ const Home = ({ userObj }) => {
                   key={nweet.id}
                   nweetObj={nweet}
                   isOwner={nweet.creatorId === userObj.uid}
-                  displayName={nweet.displayName}
+                  currUserId={userObj.uid}
                 />
                 {/* <Profile CID={nweet.creatorId} /> */}
               </>

@@ -3,17 +3,10 @@ import React, { useRef, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { collection, getDocs, query, where } from "@firebase/firestore";
 import { updateProfile } from "@firebase/auth";
-import { doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 
-import {
-  ref,
-  uploadString,
-  getDownloadURL,
-  deleteObject,
-} from "@firebase/storage";
+import { ref, uploadString, getDownloadURL } from "@firebase/storage";
 import { v4 as uuidv4 } from "uuid";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 export default ({ userObj, refreshUser }) => {
   const history = useHistory();
@@ -61,10 +54,7 @@ export default ({ userObj, refreshUser }) => {
     );
     const querySnapshot = await getDocs(q);
 
-    if (
-      userObj.displayName !== newDisplayName ||
-      userObj.displayName === null
-    ) {
+    if (userObj.displayName !== newDisplayName) {
       await updateProfile(userObj, { displayName: newDisplayName });
 
       // 09.21 드디어 이름변경시 이전 트윗들도 표시기능 탑재
@@ -130,77 +120,95 @@ export default ({ userObj, refreshUser }) => {
   const fileInput = useRef();
 
   return (
-    <div className="container">
-      <form onSubmit={onSubmit} className="profileForm">
-        {/* 09.18 사용자의 프로필 사진 */}
-        {/* 09.18 사용자에게 기본 프로필이 있을경우 : 없을경우 */}
-        {/* 09.20 드디어 수정! 사진이 기존 위치에 고정 가능 */}
-        {authService.currentUser.photoURL ? (
-          // 사용자 프로필이 이미 있으면 && 새로 바꾸면
-          newDisplayProfile ? (
-            <label for="attach-file" className="factoryInput__label">
-              <img src={newDisplayProfile} className="newPhotoTrue" />
+    <div className="container profile">
+      <div className="title profile">Profile</div>
+      <form className="list profile">
+        <form onSubmit={onSubmit} className="profileForm">
+          {/* 09.18 사용자의 프로필 사진 */}
+          {/* 09.18 사용자에게 기본 프로필이 있을경우 : 없을경우 */}
+          {/* 09.20 드디어 수정! 사진이 기존 위치에 고정 가능 */}
+          {authService.currentUser.photoURL ? (
+            // 사용자 프로필이 이미 있으면 && 새로 바꾸면
+            newDisplayProfile ? (
+              <label
+                htmlFor="attach-file"
+                className="factoryInput__label profile"
+              >
+                <img src={newDisplayProfile} className="newPhotoTrue" />
+              </label>
+            ) : (
+              // 프로필이 안 바뀐 경우
+              <label
+                htmlFor="attach-file"
+                className="factoryInput__label profile"
+              >
+                <img
+                  src={authService.currentUser.photoURL}
+                  className="currentPhotoTrue"
+                  alt="currentPhotoTrue"
+                />
+              </label>
+            )
+          ) : newDisplayProfile ? (
+            <label for="attach-file" className="factoryInput__label profile">
+              <div className="currentPhotoFalse">
+                <img
+                  src={newDisplayProfile}
+                  className="newPhotoTrue"
+                  alt="newPhotoTrue"
+                />{" "}
+              </div>
             </label>
           ) : (
-            // 프로필이 안 바뀐 경우
-            <label for="attach-file" className="factoryInput__label">
-              <img
-                src={authService.currentUser.photoURL}
-                className="currentPhotoTrue"
-                // for="attach-file"
-                // onClick={}
-              />
-            </label>
-          )
-        ) : newDisplayProfile ? (
-          <label for="attach-file" className="factoryInput__label">
-            <div
-              className="currentPhotoFalse"
-              // for="attach-file"
+            // 프로필 업뎃도 안하고 아예 빈공간일때
+            <label
+              htmlFor="attach-file"
+              className="factoryInput__label profile"
             >
-              <i className="far fa-user fa-4x"></i>
-            </div>
-          </label>
-        ) : (
-          <label for="attach-file" className="factoryInput__label">
-            <img src={newDisplayProfile} className="newPhotoTrue" />
-          </label>
-        )}
+              <i
+                className="far fa-user-circle fa-4x fa fa-quote-left fa-pull-left fa-border"
+                id="nullUser"
+              ></i>
+              {/* <img src={newDisplayProfile} className="newPhotoTrue" /> */}
+            </label>
+          )}
 
-        <input
-          id="attach-file"
-          type="file"
-          accept="image/*"
-          onChange={onFileChange}
-          style={{
-            opacity: 0,
-          }}
-          ref={fileInput}
-          name="newDisplayProfile"
-        />
+          <input
+            id="attach-file"
+            type="file"
+            accept="image/*"
+            onChange={onFileChange}
+            style={{
+              opacity: 0,
+              height: 0,
+            }}
+            ref={fileInput}
+            name="newDisplayProfile"
+          />
 
-        {/* https://basketdeveloper.tistory.com/70  참고*/}
-        <input
-          onChange={onChange}
-          type="text"
-          autoFocus
-          placeholder="Display Name"
-          value={newDisplayName}
-          className="formInput"
-          maxLength={30}
-        />
-        <input
-          type="submit"
-          value="Update Profile"
-          className="formBtn"
-          style={{
-            marginTop: 10,
-          }}
-        />
+          {/* https://basketdeveloper.tistory.com/70  참고*/}
+          <input
+            onChange={onChange}
+            type="text"
+            autoFocus
+            placeholder="Display Name"
+            value={newDisplayName}
+            className="formInput profile"
+            maxLength={30}
+          />
+          <input
+            type="submit"
+            value="Update Profile"
+            className="formBtn profile"
+            style={{
+              marginTop: 10,
+            }}
+          />
+        </form>
+        <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
+          Log Out
+        </span>
       </form>
-      <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
-        Log Out
-      </span>
     </div>
   );
 };

@@ -18,6 +18,7 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 14px;
   color: #333;
+  /* margin: 0px 0px; */
 }
 
 button {
@@ -67,7 +68,7 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
 .formInput {
@@ -92,8 +93,8 @@ form {
   text-align: center;
   font-weight: 500;
 
-  color: #5a189a;
-  border: 3px solid #5a189a;
+  color: #333;
+  border: 3px solid #333;
   background-color: transparent;
 
   border-radius: 15px;
@@ -102,9 +103,10 @@ form {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
+.formBtn:hover,
 .formBtn:active {
   color: white;
-  background-color: #5a189a;
+  background-color: #333;
 }
 
 .cancelBtn {
@@ -122,28 +124,10 @@ form {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
+.cancelBtn:hover,
 .cancelBtn:active {
   color: tomato;
-  background-color: transparent;
-}
-
-/* Profile Page */
-
-.profileForm {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
-  padding-bottom: 30px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.dark-mode .profileForm {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
-}
-
-.logOut {
-  margin-top: 50px;
+  background-color: white;
 }
 
 /* Nwitter Factory */
@@ -152,9 +136,12 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  max-width: 300px;
-  margin-top: 20px;
+
+  width: 80%;
+  min-width: 300px;
+  max-width: 700px;
+
+  margin-top: 130px;
   margin-bottom: 30px;
   /* background-color: black; */
 }
@@ -180,7 +167,6 @@ form {
   background-color: white;
 
   font-family: -apple-system;
-  font-size: 14px;
   /* color: white; */
   border: none;
   border-top-left-radius: 10px;
@@ -199,12 +185,12 @@ form {
   color: #f8f8f8;
 }
 .dark-mode .factoryInput__input::-webkit-input-placeholder {
-  color: #f8f8f8;
+  color: #a7a7a7;
 }
 
 .factoryInput__label {
   display: flex;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
 
   flex-grow: 1;
@@ -224,7 +210,7 @@ form {
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 
   color: #333;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .dark-mode .factoryInput__label {
@@ -235,28 +221,57 @@ form {
 .factoryInput__label i {
   margin-left: 20px;
   margin-right: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+.factoryInput__label i:hover {
+  color: teal;
+}
+.dark-mode .factoryInput__label i {
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  color: #f8f8f8;
+}
+
+.dark-mode .factoryInput__label i:hover {
+  color: #d22873;
 }
 
 .factoryInput__arrow {
   position: relative;
-  margin-left: 160px;
+  margin-left: 50%;
 
   text-align: center;
 
   background-color: #333;
   height: 50px;
-  width: 100px;
+
+  width: 100%;
+  min-width: 100px;
+  max-width: 500px;
 
   border-bottom-right-radius: 10px;
   color: white;
 
   font-size: 26px;
   font-weight: 800;
+
+  cursor: pointer;
+}
+.factoryInput__arrow:hover,
+.factoryInput__arrow:active {
+  background-color: teal;
 }
 
 .dark-mode .factoryInput__arrow {
   color: #333;
   background-color: #f8f8f8;
+}
+.dark-mode .factoryInput__arrow:hover,
+.dark-mode .factoryInput__arrow:active {
+  background-color: #d22873;
 }
 .factoryForm__attachment {
   display: flex;
@@ -265,7 +280,9 @@ form {
   align-items: center;
 
   width: 300px;
-  height: 200px;
+  height: 100%;
+  /* min-height: 250px; */
+  /* max-height: 400px; */
   background-color: white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -273,8 +290,13 @@ form {
 }
 
 .factoryForm__attachment img {
-  /* height: 80px; */
-  width: 280px;
+  /* height: 60%; */
+  /* min-height: 150px; */
+  /* max-height: 300px; */
+  margin: 15px 0px;
+  max-width: 280px;
+  width: 85%;
+  height: 85%;
   border-radius: 10px;
 }
 
@@ -292,150 +314,6 @@ form {
   font-size: 12px;
 }
 
-.currentPhotoFalse {
-  border-radius: 100%;
-  width: 55px;
-  height: 55px;
-  cursor: pointer;
-  border: solid 3px #5a189a;
-
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.dark-mode .currentPhotoFalse {
-  border: solid 3px #ff9e00;
-}
-
-/* Auth */
-
-.authContainer {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-}
-
-.authBtns {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 320px;
-}
-
-.authBtn {
-  cursor: pointer;
-  border-radius: 20px;
-  border: none;
-  padding: 10px 0px;
-  font-size: 12px;
-  text-align: center;
-  width: 150px;
-  background: white;
-  cursor: pointer;
-}
-
-/* AuthForm */
-
-.authInput {
-  max-width: 320px;
-  width: 100%;
-  padding: 10px;
-  border-radius: 30px;
-  background-color: rgba(255, 255, 255, 1);
-  margin-bottom: 10px;
-  font-size: 12px;
-  color: black;
-}
-
-.authSubmit {
-  text-align: center;
-  background: #5a189a;
-  color: white;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-.dark-mode .authSubmit {
-  background: #ff9e00;
-}
-
-.authError {
-  color: tomato;
-  text-align: center;
-  font-weight: 500;
-  font-size: 12px;
-}
-
-.authSwitch {
-  color: #5a189a;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-bottom: 50px;
-  display: block;
-  font-size: 12px;
-  text-decoration: underline;
-}
-.dark-mode .authSwitch {
-  color: #ff9e00;
-}
-
-/*09.18 pofile photo!*/
-.currentPhotoTrue {
-  border-radius: 100%;
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  border: solid 3px #5a189a;
-}
-
-.dark-mode .currentPhotoTrue {
-  border: solid 3px #ff9e00;
-}
-
-.profileForm .currentPhotoFalse {
-  border-radius: 100%;
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  border: solid 3px #5a189a;
-
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.dark-mode .profileForm .currentPhotoFalse {
-  border: solid 3px #ff9e00;
-}
-
-.profileForm .newPhotoTrue {
-  border-radius: 100%;
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  border: solid 3px #5a189a;
-
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.dark-mode .profileForm .newPhotoTrue {
-  border: solid 3px #ff9e00;
-}
-.far.fa-user.fa-4x {
-  color: #10171d;
-  background-size: cover;
-}
-
 .icon {
   margin: 0 20px;
   cursor: pointer;
@@ -445,4 +323,13 @@ form {
   flex-direction: column;
   position: relative;
   z-index: 2;
+}
+
+.title {
+  font-size: 40px;
+  position: relative;
+  font-weight: 700;
+  left: 5%;
+  flex-direction: column;
+  margin: 50px 0px;
 }

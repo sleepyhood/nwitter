@@ -9,6 +9,9 @@ import "../src/css/index_PC.css";
 import "../src/css/navigation.css";
 import "../src/css/nweet.css";
 import "../src/css/setting.css";
+import "../src/css/profile.css";
+import "../src/css/alarms.css";
+import "../src/css/auth.css";
 
 ReactDOM.render(
   <React.StrictMode>

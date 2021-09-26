@@ -59,11 +59,11 @@ const Navigation = ({ userObj }) => {
             onClick={onHome}
           >
             <div className="tooltip"></div>
-            {/* <i class="faTwitter fa-3x"></i> */}
+            {/* <i className="faTwitter fa-3x"></i> */}
             {isHome ? (
-              <i class="fas fa-home fa-2x"></i>
+              <i className="fas fa-home fa-2x"></i>
             ) : (
-              <i class="fas fa-home fa-2x"></i>
+              <i className="fas fa-home fa-2x"></i>
             )}{" "}
             {/* <FontAwesomeIcon
               icon={faTwitter}
@@ -76,9 +76,9 @@ const Navigation = ({ userObj }) => {
         <li>
           <Link to="/profile" className="icon profile" onClick={onProfile}>
             {isProfile ? (
-              <i class="fas fa-user fa-2x"></i>
+              <i className="fas fa-user fa-2x"></i>
             ) : (
-              <i class="far fa-user fa-2x"></i>
+              <i className="far fa-user fa-2x"></i>
             )}
 
             {/* {<span className="tooltip">
@@ -90,9 +90,9 @@ const Navigation = ({ userObj }) => {
           <Link to="/alarms" className="icon profile" onClick={onAlarms}>
             <span className="tooltip">
               {isAlarms ? (
-                <i class="fas fa-bell fa-2x"></i>
+                <i className="fas fa-bell fa-2x"></i>
               ) : (
-                <i class="far fa-bell fa-2x"></i>
+                <i className="far fa-bell fa-2x"></i>
               )}
             </span>
           </Link>
@@ -101,9 +101,9 @@ const Navigation = ({ userObj }) => {
           <Link to="/settings" className="icon profile" onClick={onSettings}>
             <span className="tooltip">
               {isSettings ? (
-                <i class="fas fa-cog fa-2x"></i>
+                <i className="fas fa-cog fa-2x"></i>
               ) : (
-                <i class="fas fa-cog fa-2x"></i>
+                <i className="fas fa-cog fa-2x"></i>
               )}
             </span>
           </Link>

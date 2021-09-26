@@ -17,7 +17,7 @@
 .navigationBar .icon:hover,
 .navigationBar .icon:active,
 .navigationBar .icon:hover:not(.current) {
-  color: #333;
+  color: teal;
 }
 .dark-mode .navigationBar {
   background-color: #10171d;
@@ -26,8 +26,9 @@
 }
 /* :hover:not(.current) */
 .dark-mode .navigationBar .icon:hover,
-.dark-mode .navigationBar .icon:active {
-  color: #fafafa;
+.dark-mode .navigationBar .icon:active,
+.dark-mode .navigationBar .icon:hover:not(.current) {
+  color: #d22873;
 }
 .navigationBar li {
   margin: auto;
@@ -40,8 +41,11 @@
   z-index: 1;
   margin-left: 10px;
 }
-.navigationBar i:current {
-  color: black;
+.navigationBar i:hover {
+  color: teal;
+}
+.dark-mode .navigationBar i:hover {
+  color: #d22873;
 }
 
 .icon:hover FontAwesomeIcon {
@@ -50,7 +54,7 @@
 
 .logoNav {
   width: 100%;
-  height: 60px;
+  height: 100px;
   position: fixed;
   top: 0;
   display: flex;
@@ -60,13 +64,55 @@
   /* transition: 0.5s; */
   background-color: #f8f8f8;
 }
-.logoNav i {
+
+/* .logoNav i,
+.logoNav span {
+  color: #333;
+  cursor: pointer; 
+}*/
+
+.logoNav .logos {
+  color: #333;
+  font-family: -apple-system;
   cursor: pointer;
+  font-size: 60px;
+  font-weight: 900;
+}
+.dark-mode .logoNav .logos {
+  color: #f8f8f8;
+}
+.logoNav .logos .triangle {
+  font-size: 68px;
+  font-weight: 600;
 }
 
+.logoNav .logos .rectangle {
+  font-size: 65px;
+  font-weight: bolder;
+}
+
+.logoNav .logos:hover,
+.logoNav .logos:active {
+  color: teal;
+}
 .dark-mode .logoNav {
   background-color: #10171d;
 }
+
+.dark-mode .logoNav .logos:hover,
+.dark-mode .logoNav .logos:active {
+  color: #d22873;
+}
+
+/* .dark-mode .logoNav i {
+  color: #f8f8f8;
+  cursor: pointer;
+} */
+
+/* .dark-mode .logoNav i:hover,
+.dark-mode .logoNav i:active {
+  color: #d22873;
+} */
 
 .logoNav.active {
   transition: all 0.5s;

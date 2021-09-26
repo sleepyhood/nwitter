@@ -1,4 +1,10 @@
 /* Nweet */
+.nweet .editForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .nweetEdit .formBtn {
   cursor: pointer;
@@ -6,15 +12,86 @@
   margin-bottom: 5px;
 }
 
+.nweetEdit .formInput {
+  min-width: 280px;
+  max-width: 280px;
+  min-height: 100px;
+  max-height: 300px;
+  font-family: -apple-system;
+
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  /* padding: 20px 0px; */
+}
+
+.dark-mode .nweetEdit .formInput {
+  background-color: #212529;
+  color: #f8f8f8;
+}
+
+.nweetEdit .formInput::-webkit-input-placeholder {
+  text-justify: center;
+}
+
+.dark-mode .nweetEdit .formInput::-webkit-input-placeholder {
+  color: #a7a7a7;
+}
+
+.nweet .editForm .formBtn {
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .nweet .editForm .formBtn {
+  border: 3px solid #f8f8f8;
+  color: #f8f8f8;
+}
+
+.dark-mode .nweet .editForm .formBtn:hover,
+.dark-mode .nweet .editForm .formBtn:active {
+  color: #333;
+  background-color: #f8f8f8;
+}
+
+.nweet .formBtn.cancelBtn,
+.dark-mode .nweet .formBtn.cancelBtn {
+  width: 50%;
+  height: 20%;
+  padding: 7px 20px;
+
+  color: white;
+  background-color: #e63946;
+  border: 3px solid #e63946;
+  font-weight: 500;
+
+  text-align: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nweet .formBtn.cancelBtn:hover,
+.nweet .formBtn.cancelBtn:active {
+  border: 3px solid #f47068;
+  background-color: #f47068;
+}
+
 .nweets {
   margin-top: 30px;
-  width: 100%;
-  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  min-width: 300px;
+  max-width: 700px;
+  margin-bottom: 100px;
 }
 
 .nweet {
   width: 100%;
-  max-width: 300px;
+  min-width: 300px;
+  max-width: 700px;
+
   margin-bottom: 20px;
   background-color: white;
   padding: 15px;
@@ -49,8 +126,8 @@
 /* 09.19 작성자 프로필 사진 */
 .authorPhoto {
   border-radius: 100%;
-  width: 55px;
-  height: 55px;
+  width: 60px;
+  height: 60px;
   cursor: pointer;
   /* border: solid 3px #333; */
 
@@ -59,8 +136,28 @@
 
   background-size: cover;
   background-position: center;
+
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* 09.26 프로필 없으면 */
+.authorProfile #nullUser {
+  /* width: 55px;
+  height: 55px; */
+  cursor: pointer;
+  /* border: solid 3px #333; */
+
+  display: inline-block;
+  content: "";
+
+  justify-content: center;
+  align-items: center;
+
+  background-size: cover;
+  background-position: center;
+  margin-right: 0;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
 .nweet h4 {
   font-size: 14px;
 }
@@ -68,13 +165,13 @@
   word-wrap: break-word;
   position: relative;
   /* margin-top: 10px; */
-  margin-left: 65px;
+  margin-left: 75px;
   font-weight: 500;
 }
 
 .nweetTime {
   position: relative;
-  margin-left: 40%;
+  margin-left: 50%;
   font-size: 12px;
   margin-top: 10px;
 }
@@ -129,4 +226,25 @@
 
 .nweet__actions span:first-child {
   margin-right: 10px;
+}
+
+.likeBtn {
+  text-align: right;
+  color: #333;
+  cursor: pointer;
+  margin: 10px 0px;
+}
+.dark-mode .likeBtn {
+  color: #f8f8f8;
+}
+.likeBtn span {
+  font-weight: 500;
+  font-size: 15px;
+  margin: 0px 5px;
+}
+.likeBtn .star {
+  color: #ffb703;
+}
+.likeBtn .notStar:hover {
+  color: #ffb703;
 }

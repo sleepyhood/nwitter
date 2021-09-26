@@ -1,13 +1,19 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import DarkModeToggle from "components/DarkModeToggle";
+import useDarkMode from "use-dark-mode";
 
 const Settings = () => {
+  const darkMode = useDarkMode(false);
+  darkMode.value = false;
   return (
-    <div className="setContainer">
-      <div className="settingTitle">Settings</div>
-      <div>
-        <DarkModeToggle />
-      </div>
+    <div className="container set">
+      <div className="title set">Settings</div>
+      <form className="list set">
+        <div className="setItem">
+          <span>Set DarkMode</span>
+          <DarkModeToggle />
+        </div>
+      </form>
     </div>
   );
 };

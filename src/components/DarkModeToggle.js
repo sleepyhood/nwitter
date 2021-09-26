@@ -18,12 +18,12 @@ const DarkModeToggle = () => {
           checked={darkMode.value}
           type="button"
           onClick={darkMode.toggle}
-          class="darkToggleBtn"
+          className="darkToggleBtn"
         >
           {darkMode.value ? (
-            <i class="far fa-lightbulb fa-3x" id="lightbulb"></i>
+            <i className="far fa-lightbulb fa-2x" id="lightbulb"></i>
           ) : (
-            <i class="far fa-lightbulb fa-3x" id="darkbulb"></i>
+            <i className="far fa-lightbulb fa-2x" id="darkbulb"></i>
           )}
         </button>
       </div>

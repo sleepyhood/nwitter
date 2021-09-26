@@ -1,0 +1,13 @@
+.container.noti {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.list.noti {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

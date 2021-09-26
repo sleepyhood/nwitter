@@ -1,0 +1,180 @@
+.container.profile {
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.list.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* Profile Page */
+
+.profileForm {
+  padding-bottom: 30px;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .profileForm {
+  background-color: #212529;
+}
+
+.logOut {
+  margin-top: 50px;
+}
+
+.factoryInput__label.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-grow: 1;
+  width: 100%;
+  height: 50px;
+  padding: 0px 0px;
+  background-color: transparent;
+
+  border: none;
+  border-radius: 0px;
+  font-weight: 500;
+  font-size: 16px;
+  /* border-bottom: 1px solid #04aaff; */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0);
+
+  color: #333;
+
+  margin: 50px 0px;
+}
+
+/*09.18 pofile photo!*/
+.profileForm .currentPhotoTrue {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profileForm .currentPhotoFalse {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  /* border: solid 3px #5a189a; */
+
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileForm .newPhotoTrue {
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  /* border: solid 3px #5a189a; */
+
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.far.fa-user.fa-4x {
+  color: #10171d;
+  background-size: cover;
+}
+.currentPhotoFalse {
+  border-radius: 100%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  border: solid 3px #5a189a;
+
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark-mode .currentPhotoFalse {
+  border: solid 3px #ff9e00;
+}
+
+.formInput.profile {
+  background-color: white;
+}
+
+.dark-mode .formInput.profile {
+  color: #f8f8f8;
+  background-color: #212529;
+}
+.dark-mode .formInput.profile::-webkit-input-placeholder {
+  color: #f8f8f8;
+}
+.formBtn.profile {
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .formBtn.profile {
+  border: 3px solid #f8f8f8;
+  color: #f8f8f8;
+}
+
+.formBtn.profile:hover,
+.formBtn.profile:active {
+  color: white;
+  background-color: #333;
+}
+
+.dark-mode .formBtn.profile:hover,
+.dark-mode .formBtn.profile:active {
+  color: #333;
+  background-color: #f8f8f8;
+}
+
+.cancelBtn.logOut {
+  cursor: pointer;
+  width: 50%;
+  height: 20%;
+  padding: 7px 20px;
+
+  color: white;
+  background-color: #e63946;
+  border: 3px solid #e63946;
+  font-weight: 500;
+
+  text-align: center;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 60px;
+  font-weight: 700;
+}
+
+.cancelBtn.logOut:hover,
+.cancelBtn.logOut:active {
+  border: 3px solid #f47068;
+  background-color: #f47068;
+}
+#nullUser {
+  color: teal;
+  background-color: white;
+  border-radius: 100%;
+}
