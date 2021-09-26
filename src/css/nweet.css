@@ -71,8 +71,12 @@
 }
 
 .nweet .formBtn.cancelBtn:hover,
-.nweet .formBtn.cancelBtn:active {
+.nweet .formBtn.cancelBtn:active,
+.dark-mode .nweet .formBtn.cancelBtn:hover,
+.dark-mode .nweet .formBtn.cancelBtn:active {
   border: 3px solid #f47068;
+  font-weight: 500;
+  color: white;
   background-color: #f47068;
 }
 

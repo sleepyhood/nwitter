@@ -8,7 +8,7 @@ import { doc, updateDoc } from "firebase/firestore";
 import { ref, uploadString, getDownloadURL } from "@firebase/storage";
 import { v4 as uuidv4 } from "uuid";
 
-export default ({ userObj, refreshUser }) => {
+const Profile = ({ userObj, refreshUser }) => {
   const history = useHistory();
   const [newDisplayName, setNewDisplayName] = useState(userObj.displayName);
   const [attachment, setAttachment] = useState("");
@@ -41,7 +41,8 @@ export default ({ userObj, refreshUser }) => {
       target: { value },
     } = event;
     setNewDisplayName(value);
-    // console.log(value);
+    console.log(userObj.displayName);
+    console.log(newDisplayName);
   };
 
   const onSubmit = async (event) => {
@@ -122,7 +123,8 @@ export default ({ userObj, refreshUser }) => {
   return (
     <div className="container profile">
       <div className="title profile">Profile</div>
-      <form className="list profile">
+      {/* css 에서 stretch를 쓰면 됨. form쓰면 업뎃 안됨 */}
+      <div className="list profile">
         <form onSubmit={onSubmit} className="profileForm">
           {/* 09.18 사용자의 프로필 사진 */}
           {/* 09.18 사용자에게 기본 프로필이 있을경우 : 없을경우 */}
@@ -208,7 +210,8 @@ export default ({ userObj, refreshUser }) => {
         <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
           Log Out
         </span>
-      </form>
+      </div>
     </div>
   );
 };
+export default Profile;

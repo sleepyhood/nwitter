@@ -36,18 +36,18 @@ function App() {
             user.displayName = `No. ${randNum}`;
           }
           // 09.26 새로고침 되도 이름이 바뀌지 않게
-          // const auth = getAuth();
-          // updateProfile(auth.currentUser, {
-          //   displayName: user.displayName,
-          // })
-          //   .then(() => {
-          //     // Profile updated!
-          //     // ...
-          //   })
-          //   .catch((error) => {
-          //     // An error occurred
-          //     // ...
-          //   });
+          const auth = getAuth();
+          updateProfile(auth.currentUser, {
+            displayName: user.displayName,
+          })
+            .then(() => {
+              // Profile updated!
+              // ...
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+            });
         }
       } else {
         // 6.0 로그아웃이 정상적으로 작동하기위해 조건문

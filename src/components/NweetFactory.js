@@ -45,7 +45,8 @@ const NweetFactory = ({ userObj }) => {
 
     const nweetObj = {
       text: nweet,
-      createdAt: d.toLocaleString("ko-KR"),
+      // createdAt: d.toLocaleString("ko-KR"),
+      createdAt: d.toString(),
       creatorId: userObj.uid,
       // 09.15 파이어베이스로부터 해당 트윗의 작성자를 불러옴!
       displayName: authService.currentUser.displayName,

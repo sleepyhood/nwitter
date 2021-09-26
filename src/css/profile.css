@@ -1,14 +1,16 @@
 .container.profile {
   display: flex;
   position: relative;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: stretch;
+  justify-content: center;
 }
 .list.profile {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  /* text-align: center; */
 }
 /* Profile Page */
 
@@ -104,17 +106,13 @@
   width: 55px;
   height: 55px;
   cursor: pointer;
-  border: solid 3px #5a189a;
+  /* border: solid 3px #5a189a; */
 
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.dark-mode .currentPhotoFalse {
-  border: solid 3px #ff9e00;
 }
 
 .formInput.profile {
