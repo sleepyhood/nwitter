@@ -13,9 +13,13 @@ import "../src/css/profile.css";
 import "../src/css/alarms.css";
 import "../src/css/auth.css";
 
+import { HashRouter as Router } from "react-router-dom";
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );

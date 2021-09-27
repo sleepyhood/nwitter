@@ -3,7 +3,7 @@ import AppRouter from "components/AppRouter";
 import { authService } from "myBase";
 import { getAuth, updateProfile } from "@firebase/auth";
 // import MediaQuery, { useMediaQuery } from "react-responsive";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 
 const App = () => {
   // 2.4 로그인과 회원가입 여부 판별, 로그인시 footer가 home
@@ -74,8 +74,10 @@ const App = () => {
     // console.log(authService.currentUser.displayName);
   };
 
+  // THis Error called "Code is deployed, but page is blank"
+
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter>
       {init ? (
         <>
           <AppRouter
@@ -87,13 +89,13 @@ const App = () => {
       ) : (
         <>
           <div className="refreshContainer">
-            <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+            {/* <i className="fa fa-refresh fa-spin fa-3x fa-fw"></i> */}
             <span className="sr-only">Initializing...</span>
           </div>
         </>
       )}
       {/* <footer>&copy; {new Date().getFullYear()} Nwitter</footer> */}
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 export default App;
