@@ -75,7 +75,7 @@ function App() {
   };
 
   return (
-    <>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       {init ? (
         <>
           <AppRouter
@@ -93,7 +93,6 @@ function App() {
         </>
       )}
       {/* <footer>&copy; {new Date().getFullYear()} Nwitter</footer> */}
-    </>
+    </BrowserRouter>
   );
 }
-export default App;
