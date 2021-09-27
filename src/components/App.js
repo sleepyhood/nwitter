@@ -5,7 +5,7 @@ import { getAuth, updateProfile } from "@firebase/auth";
 // import MediaQuery, { useMediaQuery } from "react-responsive";
 import { BrowserRouter, HashRouter } from "react-router-dom";
 
-const App = () => {
+function App() {
   // 2.4 로그인과 회원가입 여부 판별, 로그인시 footer가 home
   const [init, setInit] = useState(false);
   //  1.2 로그인이 되있으면 home, 안되있으면 Auth
@@ -97,5 +97,5 @@ const App = () => {
       {/* <footer>&copy; {new Date().getFullYear()} Nwitter</footer> */}
     </>
   );
-};
+}
 export default App;
