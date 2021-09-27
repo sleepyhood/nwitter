@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react/cjs/react.development";
 
 const Navigation = ({ userObj }) => {
   const [isHome, setIsHome] = useState(true);
