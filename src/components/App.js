@@ -77,7 +77,7 @@ const App = () => {
   // THis Error called "Code is deployed, but page is blank"
 
   return (
-    <HashRouter>
+    <>
       {init ? (
         <>
           <AppRouter
@@ -95,7 +95,7 @@ const App = () => {
         </>
       )}
       {/* <footer>&copy; {new Date().getFullYear()} Nwitter</footer> */}
-    </HashRouter>
+    </>
   );
 };
 export default App;
