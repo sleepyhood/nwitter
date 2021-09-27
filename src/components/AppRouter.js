@@ -3,7 +3,7 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import Profile from "routes/Profile";
 import Auth from "../routes/Auth";
 import Home from "../routes/Home";
-import Notification from "../routes/Notification";
+import Alarms from "../routes/Alarms";
 import Navigation from "./Navigation";
 import { Redirect } from "react-router";
 import Settings from "../routes/Settings";
@@ -25,14 +25,14 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
               }}
             >
               <>
-                <Route exact path="/">
+                <Route exact path="/nwitter">
                   <Home userObj={userObj} />
                 </Route>
                 <Route exact path="/profile">
                   <Profile userObj={userObj} refreshUser={refreshUser} />
                 </Route>
                 <Route exact path="/alarms">
-                  <Notification />
+                  <Alarms />
                 </Route>
                 <Route exact path="/settings">
                   <Settings />
